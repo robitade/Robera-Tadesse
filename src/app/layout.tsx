@@ -14,7 +14,7 @@ const architectsDaughter = Architects_Daughter({
 });
 
 export const metadata: Metadata = {
-  title: "Robbie — Senior UI/UX Designer | Robera Tadesse",
+  title: "Robbie Senior UI/UX Designer | Robera Tadesse",
   description:
     "Portfolio of Robbie (Robera Tadesse) — Senior UI/UX Designer with 2+ years of experience crafting thoughtful, user-centered digital experiences. Currently leading design at Zayno and freelancing on Upwork.",
   keywords: [
