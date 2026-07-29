@@ -36,6 +36,8 @@ export default async function ProjectPage({ params }: PageProps) {
     notFound();
   }
 
+  const project = projects[projectIndex];
+
   const prevProject =
     projectIndex > 0
       ? projects[projectIndex - 1]
