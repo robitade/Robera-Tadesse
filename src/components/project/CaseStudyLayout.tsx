@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -28,6 +28,29 @@ export default function CaseStudyLayout({
 }: CaseStudyLayoutProps) {
   const caseStudy = project.caseStudy;
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const scrollGallery = useCallback((direction: "left" | "right") => {
+    const container = galleryRef.current;
+    if (!container) return;
+    const cardWidth = container.querySelector("div")?.offsetWidth || 400;
+    const gap = 24; // gap-6 = 24px
+    const scrollAmount = cardWidth + gap;
+    container.scrollBy({
+      left: direction === "right" ? scrollAmount : -scrollAmount,
+      behavior: "smooth",
+    });
+  }, []);
+
+  const handleGalleryScroll = useCallback(() => {
+    const container = galleryRef.current;
+    if (!container) return;
+    const cardWidth = container.querySelector("div")?.offsetWidth || 400;
+    const gap = 24;
+    const index = Math.round(container.scrollLeft / (cardWidth + gap));
+    setActiveSlide(index);
+  }, []);
 
   // Collect all available project images into an array for sequential gallery viewing
   const allImages: string[] = [
@@ -200,25 +223,55 @@ export default function CaseStudyLayout({
         </AnimatedSection>
       </div>
 
-      {/* Secondary Case Study Gallery Images Grid */}
+      {/* Scrollable Project Gallery Carousel */}
       {caseStudy?.images && caseStudy.images.length > 0 && (
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-6 mb-24 relative z-10">
-          <h3 className="text-xl font-bold text-white mb-4">Project Gallery</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="mb-24 relative z-10">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between mb-6">
+            <h3 className="text-xl font-bold text-white">Project Gallery</h3>
+            {/* Arrow controls */}
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => scrollGallery("left")}
+                className="w-10 h-10 rounded-full border border-white/20 bg-white/5 hover:bg-white/15 flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 disabled:opacity-30"
+                aria-label="Previous image"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                onClick={() => scrollGallery("right")}
+                className="w-10 h-10 rounded-full border border-white/20 bg-white/5 hover:bg-white/15 flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 disabled:opacity-30"
+                aria-label="Next image"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          </div>
+
+          {/* Horizontal scroll container */}
+          <div
+            ref={galleryRef}
+            onScroll={handleGalleryScroll}
+            className="flex gap-6 overflow-x-auto px-6 lg:px-8 pb-4 snap-x snap-mandatory scroll-smooth"
+            style={{
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              WebkitOverflowScrolling: "touch",
+            }}
+          >
             {caseStudy.images.map((img, idx) => {
               const globalIndex = (project.image ? 1 : 0) + idx;
               return (
                 <div
                   key={idx}
                   onClick={() => setLightboxIndex(globalIndex)}
-                  className="rounded-[20px] bg-[#0A0D12] border border-white/15 p-3 sm:p-4 overflow-hidden shadow-xl group cursor-zoom-in relative"
+                  className="flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[55vw] lg:w-[45vw] snap-start rounded-[20px] bg-[#0A0D12] border border-white/15 p-3 sm:p-4 overflow-hidden shadow-xl group cursor-zoom-in relative transition-transform duration-300 hover:scale-[1.02]"
                 >
                   <div className="w-full aspect-[16/10] rounded-[16px] overflow-hidden relative">
                     <Image
                       src={img}
                       alt={`${project.title} screenshot ${idx + 1}`}
                       fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      sizes="(max-width: 768px) 85vw, 45vw"
                       className="object-cover rounded-[16px] block transition-transform duration-500 group-hover:scale-105"
                     />
                     {/* Zoom hint overlay */}
@@ -232,6 +285,33 @@ export default function CaseStudyLayout({
               );
             })}
           </div>
+
+          {/* Dot indicators */}
+          {caseStudy.images.length > 1 && (
+            <div className="flex items-center justify-center gap-2 mt-6">
+              {caseStudy.images.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    const container = galleryRef.current;
+                    if (!container) return;
+                    const cardWidth = container.querySelector("div")?.offsetWidth || 400;
+                    const gap = 24;
+                    container.scrollTo({
+                      left: idx * (cardWidth + gap),
+                      behavior: "smooth",
+                    });
+                  }}
+                  className={`rounded-full transition-all duration-300 ${
+                    activeSlide === idx
+                      ? "w-8 h-2.5 bg-white"
+                      : "w-2.5 h-2.5 bg-white/30 hover:bg-white/50"
+                  }`}
+                  aria-label={`Go to image ${idx + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       )}
 
