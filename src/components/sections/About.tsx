@@ -29,7 +29,11 @@ const experiences = [
 
 export default function About() {
   return (
-    <section id="about" className="py-20 lg:py-28 relative bg-transparent overflow-hidden">
+    <section id="about" className="py-24 lg:py-36 relative bg-transparent">
+      {/* Seamless transition gradients */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-bg-primary via-bg-primary/40 to-transparent pointer-events-none z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg-primary via-bg-primary/40 to-transparent pointer-events-none z-10" />
+
       {/* Background ambient lighting effects matching Projects theme */}
       <div
         className="absolute top-10 -left-64 w-[600px] h-[600px] rounded-full pointer-events-none opacity-35 z-0"

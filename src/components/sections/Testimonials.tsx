@@ -46,7 +46,11 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="py-24 lg:py-32 relative bg-transparent overflow-hidden">
+    <section id="testimonials" className="py-24 lg:py-36 relative bg-transparent">
+      {/* Seamless transition gradients */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-bg-primary via-bg-primary/40 to-transparent pointer-events-none z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg-primary via-bg-primary/40 to-transparent pointer-events-none z-10" />
+
       {/* Figma background ambient glow */}
       <div
         className="absolute top-1/2 -right-40 w-[500px] h-[500px] rounded-full pointer-events-none opacity-30 z-0"

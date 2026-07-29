@@ -196,6 +196,9 @@ export default function Hero() {
           </div>
         </div>
       </motion.div>
+
+      {/* Bottom seamless transition gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-bg-primary via-bg-primary/50 to-transparent pointer-events-none z-20" />
     </section>
   );
 }

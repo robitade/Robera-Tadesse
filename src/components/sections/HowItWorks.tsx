@@ -26,7 +26,11 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="process" className="py-24 lg:py-32 relative overflow-hidden bg-transparent">
+    <section id="process" className="py-24 lg:py-36 relative bg-transparent">
+      {/* Seamless transition gradients */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-bg-primary via-bg-primary/40 to-transparent pointer-events-none z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg-primary via-bg-primary/40 to-transparent pointer-events-none z-10" />
+
       {/* Figma 306x306 #48A1FB 76% layer blur ambient glow spots */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[306px] h-[306px] rounded-full pointer-events-none z-0 opacity-80"
