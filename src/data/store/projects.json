@@ -38,7 +38,8 @@
         "/images/Applizy 1.png",
         "/images/Applizy 2.png"
       ]
-    }
+    },
+    "sampleUrl": "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0"
   },
   {
     "slug": "mela",
@@ -76,7 +77,8 @@
       ],
       "outcome": "Increased onboarding completion by 48% and reduced average transfer initiation time from 3.5 minutes down to 45 seconds.",
       "images": []
-    }
+    },
+    "sampleUrl": "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0"
   },
   {
     "slug": "zayno",
@@ -121,7 +123,8 @@
       "images": [
         "/images/Zayno 01.png"
       ]
-    }
+    },
+    "sampleUrl": "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0"
   },
   {
     "slug": "eic",
@@ -156,7 +159,8 @@
       "images": [
         "/images/EIC 01.png"
       ]
-    }
+    },
+    "sampleUrl": "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0"
   },
   {
     "slug": "gelagle",
@@ -189,7 +193,8 @@
       ],
       "outcome": "Reduced daily inventory auditing time from 2 hours down to 15 minutes for early pilot retailers.",
       "images": []
-    }
+    },
+    "sampleUrl": "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0"
   },
   {
     "slug": "emeda",
@@ -224,7 +229,8 @@
       "images": [
         "/images/Emeda 01.png"
       ]
-    }
+    },
+    "sampleUrl": "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0"
   },
   {
     "slug": "learn",
@@ -260,7 +266,8 @@
       "images": [
         "/images/Learn 01.png"
       ]
-    }
+    },
+    "sampleUrl": "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0"
   },
   {
     "slug": "planz",
@@ -295,6 +302,7 @@
       "images": [
         "/images/Aqua.png"
       ]
-    }
+    },
+    "sampleUrl": "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0"
   }
 ]

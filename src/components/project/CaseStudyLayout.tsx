@@ -135,7 +135,7 @@ export default function CaseStudyLayout({
             {/* Social / Link badge */}
             <div className="flex items-center gap-2">
               <a
-                href={project.sampleUrl || "https://www.figma.com/"}
+                href={project.sampleUrl || "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 rounded-lg border border-white/20 bg-white/5 hover:bg-white/15 flex items-center justify-center text-white/70 hover:text-white transition-colors"
@@ -154,7 +154,7 @@ export default function CaseStudyLayout({
           {/* White Pill CTA Button */}
           <div>
             <a
-              href={project.sampleUrl || "https://www.figma.com/"}
+              href={project.sampleUrl || "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0"}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white text-black font-semibold px-7 py-3.5 rounded-full hover:bg-white/90 transition-all text-sm shadow-xl cursor-pointer hover:scale-105 active:scale-95"

@@ -35,7 +35,7 @@ export const projects: Project[] = [
     tags: ["SaaS", "Web"],
     image: "/images/applizy (1).png",
     featured: true,
-    sampleUrl: "https://www.figma.com/",
+    sampleUrl: "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0",
     caseStudy: {
       overview:
         "Applizy is a SaaS platform that automates the job application process. I designed a high-converting landing page that communicates the value proposition instantly — \"We apply, you interview\" — driving sign-ups and reducing bounce rate.",
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     tags: ["App", "Fintech"],
     image: "/images/Mela (3).png",
     featured: true,
-    sampleUrl: "https://www.figma.com/",
+    sampleUrl: "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0",
     caseStudy: {
       overview:
         "Mela streamlines cross-border transactions between USD and ETB with instant rates, biometric security, and real-time transaction tracking.",
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     tags: ["App", "Web"],
     image: "/images/Zayno (2).png",
     featured: true,
-    sampleUrl: "https://www.figma.com/",
+    sampleUrl: "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0",
     caseStudy: {
       overview:
         "Zayno is a multi-sided marketplace connecting service providers with customers across Ethiopia. As the lead designer, I crafted the end-to-end experience for both provider and customer sides, from onboarding to service delivery and payment.",
@@ -157,7 +157,7 @@ export const projects: Project[] = [
     tags: ["Web", "Redesign"],
     image: "/images/EIC.png",
     featured: true,
-    sampleUrl: "https://www.figma.com/",
+    sampleUrl: "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0",
     caseStudy: {
       overview:
         "Complete structural and visual redesign for Ethiopia's primary insurance corporation, modernizing claims submission and policy exploration for mobile users.",
@@ -191,7 +191,7 @@ export const projects: Project[] = [
     tags: ["App", "SaaS"],
     image: "/images/Gelagle.png",
     featured: true,
-    sampleUrl: "https://www.figma.com/",
+    sampleUrl: "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0",
     caseStudy: {
       overview:
         "Gelagle simplifies inventory management for local retail businesses, combining real-time stock tracking with automated reorder alerts.",
@@ -225,7 +225,7 @@ export const projects: Project[] = [
     tags: ["Web", "E-Commerce"],
     image: "/images/Emeda.png",
     featured: true,
-    sampleUrl: "https://www.figma.com/",
+    sampleUrl: "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0",
     caseStudy: {
       overview:
         "An immersive cultural e-commerce experience showcasing high-end traditional attire with custom sizing and international checkout.",
@@ -259,7 +259,7 @@ export const projects: Project[] = [
     tags: ["App", "EdTech"],
     image: "/images/Learn (6).png",
     featured: true,
-    sampleUrl: "https://www.figma.com/",
+    sampleUrl: "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0",
     caseStudy: {
       overview:
         "Gamified mobile learning app turning Grade 9 STEM curriculum into bite-sized daily challenges and competitive quiz battles.",
@@ -293,7 +293,7 @@ export const projects: Project[] = [
     tags: ["Web", "Branding"],
     image: "/images/Plan.png",
     featured: true,
-    sampleUrl: "https://www.figma.com/",
+    sampleUrl: "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1&p=f&t=Q0eODAdjJDxZHGFD-0",
     caseStudy: {
       overview:
         "Luxury branding and landing page for Plan Z, presenting high-end architectural pool and landscape engineering.",
