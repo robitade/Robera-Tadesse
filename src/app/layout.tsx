@@ -74,6 +74,12 @@ export default function RootLayout({
     description:
       "Senior UI/UX Designer crafting scalable, high-converting digital products across fintech, SaaS, and e-commerce.",
     knowsAbout: ["UI/UX Design", "Product Design", "Figma", "User Research", "Prototyping"],
+    sameAs: [
+      "https://www.linkedin.com/in/robera-tadesse-r242721/",
+      "https://x.com/robbie_Designui",
+      "https://github.com/robitade",
+      "https://www.instagram.com/robitade1/",
+    ],
   };
 
   return (

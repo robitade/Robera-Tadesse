@@ -64,7 +64,7 @@ export default function Footer() {
 
           {/* LinkedIn */}
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/robera-tadesse-r242721/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -77,7 +77,7 @@ export default function Footer() {
 
           {/* X (Twitter) */}
           <a
-            href="https://x.com"
+            href="https://x.com/robbie_Designui"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="X (Twitter)"
@@ -88,7 +88,7 @@ export default function Footer() {
 
           {/* GitHub */}
           <a
-            href="https://github.com"
+            href="https://github.com/robitade"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -101,7 +101,7 @@ export default function Footer() {
 
           {/* Instagram */}
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/robitade1/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -126,13 +126,6 @@ export default function Footer() {
             <p className="text-xs md:text-sm text-white/50 font-light">
               © 2026 robbie. Designed &amp; built with care.
             </p>
-            <span className="text-white/20">•</span>
-            <a
-              href="/admin/login"
-              className="text-xs text-white/30 hover:text-white/70 transition-colors"
-            >
-              Admin
-            </a>
           </div>
         </div>
       </div>
