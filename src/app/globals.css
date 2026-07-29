@@ -29,11 +29,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Hide scrollbar for gallery carousel */
-.overflow-x-auto::-webkit-scrollbar {
-  display: none;
-}
-
 body {
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
