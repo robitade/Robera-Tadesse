@@ -3,18 +3,27 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowUpRight, ZoomIn } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowUpRight,
+  ZoomIn,
+  ChevronLeft,
+  ChevronRight,
+  ExternalLink,
+} from "lucide-react";
 import type { Project } from "@/data/projects";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ImageLightbox from "@/components/ui/ImageLightbox";
 
 interface CaseStudyLayoutProps {
   project: Project;
+  prevProject?: Project;
   nextProject?: Project;
 }
 
 export default function CaseStudyLayout({
   project,
+  prevProject,
   nextProject,
 }: CaseStudyLayoutProps) {
   const caseStudy = project.caseStudy;
@@ -27,7 +36,16 @@ export default function CaseStudyLayout({
   ];
 
   return (
-    <article className="min-h-screen bg-[#05070A] text-white pt-24 pb-20">
+    <article className="min-h-screen bg-[#05070A] text-white pt-24 pb-20 relative overflow-hidden">
+      {/* Background ambient lighting effects */}
+      <div
+        className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none opacity-25 z-0"
+        style={{
+          backgroundColor: "rgba(254, 160, 72, 0.35)",
+          filter: "blur(200px)",
+        }}
+      />
+
       {/* Lightbox Modal */}
       <ImageLightbox
         images={allImages}
@@ -37,7 +55,7 @@ export default function CaseStudyLayout({
       />
 
       {/* Back navigation */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-8 relative z-10">
         <Link
           href="/#projects"
           className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm font-medium"
@@ -47,144 +65,175 @@ export default function CaseStudyLayout({
         </Link>
       </div>
 
-      {/* Main 2-Column Hero Layout matching screenshot */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-24">
-        {/* Left Column: Details & Copy */}
-        <AnimatedSection className="lg:col-span-6 space-y-8">
-          {/* Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
-            {project.title}
-          </h1>
-
-          {/* Role */}
-          {caseStudy?.role && (
-            <p className="text-white/80 text-sm md:text-base font-medium">
-              <span className="font-semibold text-white">My Role:</span>{" "}
-              {caseStudy.role}
-            </p>
-          )}
-
-          {/* Project Description */}
-          <div className="space-y-3">
-            <h3 className="text-white font-semibold text-base">
-              Project Description:
-            </h3>
-            <p className="text-white/80 text-sm md:text-base leading-relaxed font-light">
-              {project.description}
-            </p>
-            {caseStudy?.overview && (
-              <p className="text-white/80 text-sm md:text-base leading-relaxed font-light">
-                {caseStudy.overview}
-              </p>
-            )}
-          </div>
-
-          {/* Skills & deliverables */}
-          <div className="space-y-4 pt-2">
-            <h3 className="text-white font-semibold text-base">
-              Skills & deliverables
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center gap-2 bg-transparent border border-white/25 text-white font-medium px-5 py-2.5 rounded-full text-sm shadow-sm hover:border-white/50 transition-colors"
-                >
-                  <span className="w-2 h-2 rounded-full bg-white/80" />
-                  {tag}
-                </span>
-              ))}
-              {caseStudy?.tools.map((tool) => (
-                <span
-                  key={tool}
-                  className="inline-flex items-center gap-2 bg-transparent border border-white/25 text-white font-medium px-5 py-2.5 rounded-full text-sm shadow-sm hover:border-white/50 transition-colors"
-                >
-                  <span className="text-white/80">⚙️</span> {tool}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* CTA Pill button linking to Figma sample designs */}
-          <div className="pt-4">
-            <a
-              href={project.sampleUrl || "https://www.figma.com/design/vxxjkJWIRS84aNNoYsgInm/Sample-Design-for-mobile---web?node-id=0-1"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-white text-black font-medium px-7 py-3.5 rounded-full hover:bg-white/90 transition-all text-sm shadow-xl cursor-pointer hover:scale-105 active:scale-95"
-            >
-              <span>See Sample Design</span>
-              <ArrowUpRight size={16} />
-            </a>
-          </div>
-        </AnimatedSection>
-
-        {/* Right Column: Multi-Card Image Showcase Grid */}
-        <AnimatedSection delay={0.2} className="lg:col-span-6 space-y-6">
-          {/* Top Main Showcase Card */}
+      {/* Main 2-Column Hero Showcase matching user reference design */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-24 relative z-10">
+        {/* Left Column: Large Project Image Frame (60% width) */}
+        <AnimatedSection className="lg:col-span-7">
           <div
             onClick={() => project.image && setLightboxIndex(0)}
-            className="rounded-[20px] bg-[#0A0D12] border border-white/15 p-3 sm:p-4 overflow-hidden shadow-2xl group cursor-zoom-in relative"
+            className="rounded-[24px] bg-[#0A0D12] border border-white/15 p-2 sm:p-3 overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)] group cursor-zoom-in relative"
           >
-            <div className="w-full rounded-[16px] overflow-hidden relative">
+            <div className="w-full aspect-[16/10] rounded-[18px] overflow-hidden relative bg-[#07090C]">
               {project.image ? (
                 <>
                   <Image
                     src={project.image}
                     alt={project.title}
-                    width={1400}
-                    height={900}
-                    className="w-full h-auto rounded-[16px] block transition-transform duration-500 group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="object-cover rounded-[18px] transition-transform duration-700 group-hover:scale-[1.03]"
                     priority
                   />
                   {/* Zoom hint overlay */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-[16px]">
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-[18px]">
                     <span className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md text-white font-medium px-4 py-2 rounded-full text-xs border border-white/20">
                       <ZoomIn size={14} /> Click for full screen
                     </span>
                   </div>
                 </>
               ) : (
-                <div className="w-full aspect-[16/10] flex items-center justify-center bg-white/5">
+                <div className="w-full h-full flex items-center justify-center bg-white/5">
                   <span className="text-xl text-white/40">{project.title}</span>
                 </div>
               )}
             </div>
           </div>
+        </AnimatedSection>
 
-          {/* Secondary Case Study Gallery Images */}
-          {caseStudy?.images && caseStudy.images.length > 0 && (
-            <div className="space-y-6">
-              {caseStudy.images.map((img, idx) => {
-                const globalIndex = (project.image ? 1 : 0) + idx;
-                return (
-                  <div
-                    key={idx}
-                    onClick={() => setLightboxIndex(globalIndex)}
-                    className="rounded-[20px] bg-[#0A0D12] border border-white/15 p-3 sm:p-4 overflow-hidden shadow-xl group cursor-zoom-in relative"
+        {/* Right Column: Project Details Panel (40% width) */}
+        <AnimatedSection delay={0.15} className="lg:col-span-5 space-y-7 flex flex-col justify-between">
+          {/* Header Row: Title & Top Right Arrow Navigation */}
+          <div className="space-y-4">
+            <div className="flex items-start justify-between gap-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
+                {project.title}
+              </h1>
+
+              {/* Prev / Next Arrow Navigation (< >) */}
+              <div className="flex items-center gap-2 pt-1 shrink-0">
+                {prevProject && (
+                  <Link
+                    href={`/projects/${prevProject.slug}`}
+                    className="w-10 h-10 rounded-full border border-white/20 bg-white/5 hover:bg-white/15 flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-md"
+                    title={`Previous: ${prevProject.title}`}
                   >
-                    <div className="w-full rounded-[16px] overflow-hidden relative">
-                      <Image
-                        src={img}
-                        alt={`${project.title} screenshot ${idx + 1}`}
-                        width={1400}
-                        height={900}
-                        className="w-full h-auto rounded-[16px] block transition-transform duration-500 group-hover:scale-105"
-                      />
-                      {/* Zoom hint overlay */}
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-[16px]">
-                        <span className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md text-white font-medium px-4 py-2 rounded-full text-xs border border-white/20">
-                          <ZoomIn size={14} /> Click for full screen
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+                    <ChevronLeft size={18} />
+                  </Link>
+                )}
+                {nextProject && (
+                  <Link
+                    href={`/projects/${nextProject.slug}`}
+                    className="w-10 h-10 rounded-full border border-white/20 bg-white/5 hover:bg-white/15 flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-md"
+                    title={`Next: ${nextProject.title}`}
+                  >
+                    <ChevronRight size={18} />
+                  </Link>
+                )}
+              </div>
             </div>
-          )}
+
+            {/* Social / Link badge */}
+            <div className="flex items-center gap-2">
+              <a
+                href={project.sampleUrl || "https://www.figma.com/"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-lg border border-white/20 bg-white/5 hover:bg-white/15 flex items-center justify-center text-white/70 hover:text-white transition-colors"
+                title="External Link"
+              >
+                <ExternalLink size={14} />
+              </a>
+            </div>
+          </div>
+
+          {/* Description */}
+          <p className="text-white/80 text-sm sm:text-base leading-relaxed font-light">
+            {project.description}
+          </p>
+
+          {/* White Pill CTA Button */}
+          <div>
+            <a
+              href={project.sampleUrl || "https://www.figma.com/"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white text-black font-semibold px-7 py-3.5 rounded-full hover:bg-white/90 transition-all text-sm shadow-xl cursor-pointer hover:scale-105 active:scale-95"
+            >
+              <span>See Sample Design</span>
+              <ArrowUpRight size={16} />
+            </a>
+          </div>
+
+          {/* 2-Column Metadata Grid (Styles & Type/Role) */}
+          <div className="grid grid-cols-2 gap-6 pt-4 border-t border-white/10">
+            {/* Left Column: Styles / Tags */}
+            <div className="space-y-2">
+              <h4 className="text-xs uppercase tracking-wider text-white/50 font-medium">
+                Styles & Tags
+              </h4>
+              <div className="space-y-1">
+                {project.tags.map((tag) => (
+                  <div key={tag} className="text-sm font-semibold text-white">
+                    {tag}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column: Type & Role */}
+            <div className="space-y-2">
+              <h4 className="text-xs uppercase tracking-wider text-white/50 font-medium">
+                Role & Duration
+              </h4>
+              <div className="space-y-1">
+                <div className="text-sm font-semibold text-white">
+                  {caseStudy?.role || "UI/UX Designer"}
+                </div>
+                {caseStudy?.duration && (
+                  <div className="text-xs text-white/70">
+                    {caseStudy.duration}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
         </AnimatedSection>
       </div>
+
+      {/* Secondary Case Study Gallery Images Grid */}
+      {caseStudy?.images && caseStudy.images.length > 0 && (
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-6 mb-24 relative z-10">
+          <h3 className="text-xl font-bold text-white mb-4">Project Gallery</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {caseStudy.images.map((img, idx) => {
+              const globalIndex = (project.image ? 1 : 0) + idx;
+              return (
+                <div
+                  key={idx}
+                  onClick={() => setLightboxIndex(globalIndex)}
+                  className="rounded-[20px] bg-[#0A0D12] border border-white/15 p-3 sm:p-4 overflow-hidden shadow-xl group cursor-zoom-in relative"
+                >
+                  <div className="w-full aspect-[16/10] rounded-[16px] overflow-hidden relative">
+                    <Image
+                      src={img}
+                      alt={`${project.title} screenshot ${idx + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover rounded-[16px] block transition-transform duration-500 group-hover:scale-105"
+                    />
+                    {/* Zoom hint overlay */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-[16px]">
+                      <span className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md text-white font-medium px-4 py-2 rounded-full text-xs border border-white/20">
+                        <ZoomIn size={14} /> Click for full screen
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Extended Case Study Details: Problem, Process, & Business Impact */}
       {caseStudy && (

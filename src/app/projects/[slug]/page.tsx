@@ -36,7 +36,11 @@ export default async function ProjectPage({ params }: PageProps) {
     notFound();
   }
 
-  const project = projects[projectIndex];
+  const prevProject =
+    projectIndex > 0
+      ? projects[projectIndex - 1]
+      : projects[projects.length - 1];
+
   const nextProject =
     projectIndex < projects.length - 1
       ? projects[projectIndex + 1]
@@ -45,7 +49,11 @@ export default async function ProjectPage({ params }: PageProps) {
   return (
     <>
       <Navbar />
-      <CaseStudyLayout project={project} nextProject={nextProject} />
+      <CaseStudyLayout
+        project={project}
+        prevProject={prevProject}
+        nextProject={nextProject}
+      />
       <Footer />
     </>
   );
