@@ -1,0 +1,42 @@
+[
+  {
+    "quote": "\"Sharp eye, solid process. He listens well and turns feedback around fast you can tell he actually cares about getting it right.\"",
+    "author": "Abel Ashine",
+    "role": "Senior Fullstack Developer@Possible Technology",
+    "company": "Possible Technology",
+    "date": "Jun 2025",
+    "avatar": "/images/abel.jpg"
+  },
+  {
+    "quote": "\"Robbie's design work moved our conversion by 34% in the first month. Sharp instincts, faster than anyone I've worked with.\"",
+    "author": "Biruk Girma",
+    "role": "CEO and Co-founder at Sumuni",
+    "company": "Sumuni",
+    "date": "Jan 2025",
+    "avatar": "/images/Biruk (2).png"
+  },
+  {
+    "quote": "\"The kind of designer who thinks like a PM and ships like an engineer. Our design system is finally something the team fights for.\"",
+    "author": "Natnael Endale",
+    "role": "Product Manager @ Capital One",
+    "company": "Capital One",
+    "date": "Oct 2024",
+    "avatar": "/images/Natnael.png"
+  },
+  {
+    "quote": "\"A rare mix of taste and rigor by the third round, every screen felt inevitable. He was always seeking feedback and working through it with care, which made the whole process very smooth.\"",
+    "author": "Bereket Mitiku",
+    "role": "CEO @ Possible Technology",
+    "company": "Possible Technology",
+    "date": "Feb 2026",
+    "avatar": "/images/Beki.png"
+  },
+  {
+    "quote": "Robbie brought a rare combination of speed, polish, and genuine curiosity to every project we worked on together. Whether it was untangling a complex user flow for a fintech product or shaping the visual identity of a platform from scratch.",
+    "author": "Yared Girma",
+    "role": "Senior Software Developer",
+    "company": "Possible Technology",
+    "date": "Jan 2025",
+    "avatar": "/images/Screenshot_28-7-2026_164550_yared-girma.vercel.app.jpeg"
+  }
+]

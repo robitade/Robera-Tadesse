@@ -1,26 +1,144 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-bg-primary: #0a0f08;
+  --color-bg-secondary: #0f1610;
+  --color-bg-elevated: #151e14;
+  --color-accent: #BEFF00;
+  --color-accent-dim: #9acc00;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #9aac8a;
+  --color-text-muted: #566350;
+  --color-border: #1a2618;
+  --color-border-light: #2a3a26;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.font-architects {
+  font-family: var(--font-architects), 'Architects Daughter', cursive;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base styles */
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Navbar gradient — matching design: dark olive-green (left) → dark teal (right) */
+.navbar-gradient {
+  background: linear-gradient(
+    105deg,
+    #1a2a0a 0%,
+    #14200c 25%,
+    #0e1610 50%,
+    #0a1218 75%,
+    #081620 100%
+  );
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(190, 255, 0, 0.2);
+  color: #BEFF00;
+}
+
+/* Glow utility */
+.glow-accent {
+  box-shadow: 0 0 20px rgba(190, 255, 0, 0.25), 0 0 40px rgba(190, 255, 0, 0.1);
+}
+
+.glow-accent-sm {
+  box-shadow: 0 0 10px rgba(190, 255, 0, 0.2), 0 0 20px rgba(190, 255, 0, 0.08);
+}
+
+/* Text gradient utility */
+.text-gradient-accent {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #e0ff80 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover glow */
+.card-glow:hover {
+  box-shadow: 0 0 30px rgba(190, 255, 0, 0.06), 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Seamless unified canvas backgrounds matching Hero theme */
+.bg-gradient-hero {
+  background: transparent;
+}
+
+.bg-gradient-section {
+  background: radial-gradient(ellipse at 50% 50%, rgba(40, 70, 15, 0.08) 0%, transparent 70%),
+              var(--color-bg-primary);
+}
+
+/* Focus ring */
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 0 3px rgba(190, 255, 0, 0.1);
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee-tags {
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 32s linear infinite;
 }
